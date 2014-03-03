@@ -9,7 +9,7 @@
 
 @end
 
-@implementation SimpleBrowserViewController
+@implementation ScholarConnectViewController
 
 - (void)viewDidLoad
 {
