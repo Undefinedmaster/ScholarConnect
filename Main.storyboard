@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Simple Browser View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="SimpleBrowserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZP3-Xb-iiD"/>
+                        <viewControllerLayoutGuide type="bottom" id="OBn-V3-ofp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vR0-W8-6Hx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exv-52-8Pf">
+                                <rect key="frame" x="121" y="166" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Student">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="studentButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zgn-6m-0HD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you a teacher or a student?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vl-4l-XUH">
+                                <rect key="frame" x="39" y="52" width="242" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlJ-uL-bCe">
+                                <rect key="frame" x="133" y="372" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Teacher">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teacherButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eYt-Ue-QND"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullFillerView" destination="oQz-c6-ARh" id="Ao1-Hs-tBV"/>
+                        <outlet property="resignFirstResponder" destination="d3S-QC-FRR" id="jJ0-u2-qYZ"/>
+                        <outlet property="studentButton" destination="exv-52-8Pf" id="zeV-AT-vSL"/>
+                        <outlet property="teacherClassHourField" destination="zGD-Fc-ORl" id="CJM-Ek-FHw"/>
+                        <outlet property="teacherClassNameField" destination="Hap-Gu-x4T" id="z2H-Ft-kda"/>
+                        <outlet property="teacherGoBtn" destination="yoo-GY-DPM" id="973-Xr-oXM"/>
+                        <outlet property="teacherInstructions" destination="FsJ-hs-dR9" id="idp-0a-m6l"/>
+                        <outlet property="teacherLastNameField" destination="dNE-qG-cOl" id="Gid-YG-c1d"/>
+                        <outlet property="teacherOrStudentLabel" destination="0vl-4l-XUH" id="5rd-89-Uyx"/>
+                        <outlet property="teacherPhoneField" destination="bNW-Fx-kid" id="pzn-bT-iku"/>
+                        <outlet property="teacherPhoneLabel" destination="ZXg-Md-Xzc" id="6JH-9y-hbv"/>
+                        <outlet property="teacherTitleField" destination="WLV-Ct-Z4Z" id="6Xx-o3-1vR"/>
+                        <outlet property="webView" destination="RpQ-4o-K4f" id="2GX-fC-RTU"/>
+                        <segue destination="UGR-Ft-XU2" kind="modal" identifier="teacher" id="SnE-2k-hlp"/>
+                        <segue destination="Oli-ev-2HD" kind="modal" identifier="student" id="x0Z-u1-DYK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="173"/>
+        </scene>
+        <!--Teacher View Controller-->
+        <scene sceneID="DF7-Cd-cLI">
+            <objects>
+                <viewController title="Teacher View Controller" id="UGR-Ft-XU2" userLabel="Teacher View Controller" customClass="TeacherViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y0f-IB-iNH"/>
+                        <viewControllerLayoutGuide type="bottom" id="vmp-sO-8hZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RpQ-4o-K4f">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKh-NQ-qvu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ScholarConnect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7F-sl-GAT">
+                                        <rect key="frame" x="26" y="20" width="274" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.23805780661666229" blue="0.49569515306122447" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="-1" height="-1"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxW-lG-Nbl">
+                                <rect key="frame" x="60" y="315" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="I already signed up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teacherAlready:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="87Q-w5-lUL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoo-GY-DPM">
+                                <rect key="frame" x="101" y="231" width="119" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teacherGoBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7rH-da-u4Q"/>
+                                    <action selector="teacherGoBtn:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="hNG-0z-kOe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullFillerView" destination="oQz-c6-ARh" id="O94-uz-7uv"/>
+                        <outlet property="resignFirstResponder" destination="d3S-QC-FRR" id="aAO-xq-Lky"/>
+                        <outlet property="teacherAlready" destination="fxW-lG-Nbl" id="w5u-8p-T28"/>
+                        <outlet property="teacherClassHourField" destination="zGD-Fc-ORl" id="d10-7U-Ltx"/>
+                        <outlet property="teacherClassNameField" destination="Hap-Gu-x4T" id="rEU-QA-trt"/>
+                        <outlet property="teacherGoBtn" destination="yoo-GY-DPM" id="rtm-q4-kCN"/>
+                        <outlet property="teacherInstructions" destination="FsJ-hs-dR9" id="MKA-vM-Qhb"/>
+                        <outlet property="teacherLastNameField" destination="dNE-qG-cOl" id="Ctk-Oc-DHk"/>
+                        <outlet property="teacherPhoneField" destination="bNW-Fx-kid" id="my7-oe-1FC"/>
+                        <outlet property="teacherPhoneLabel" destination="ZXg-Md-Xzc" id="Mr4-5i-xGe"/>
+                        <outlet property="teacherTitleField" destination="WLV-Ct-Z4Z" id="eNB-UO-bux"/>
+                        <outlet property="webView" destination="RpQ-4o-K4f" id="6T1-Ht-wvP"/>
+                        <segue destination="6GE-Wj-JN2" kind="modal" identifier="teacherCreate" id="cOw-si-k50"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvQ-qF-cXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666" y="173"/>
+        </scene>
+        <!--Teacher Create View Controller-->
+        <scene sceneID="hS1-0Y-r35">
+            <objects>
+                <viewController id="6GE-Wj-JN2" customClass="TeacherCreateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hbj-uh-moQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="1wS-Ul-zqU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hLv-f2-5Vs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vox-6A-iJu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aje-V0-uLc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="302" translatesAutoresizingMaskIntoConstraints="NO" id="J4J-ak-fEw">
+                                        <rect key="frame" x="8" y="27" width="302" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your unique class code (write this down):" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8m-dS-I07">
+                                        <rect key="frame" x="25" y="20" width="254" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFE-LB-IRn">
+                                <rect key="frame" x="234" y="38" width="66" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teacherContinue:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="ExS-Gc-MTD"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-c6-ARh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name (e.g. Biology)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hap-Gu-x4T">
+                                        <rect key="frame" x="20" y="77" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter information about your class and school here." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="FsJ-hs-dR9">
+                                        <rect key="frame" x="25" y="12" width="275" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex6-91-E6t">
+                                        <rect key="frame" x="254" y="76" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="WWD-aI-co5"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="gMW-4v-xeA"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kX6-dF-WqS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faJ-HK-uJH">
+                                        <rect key="frame" x="254" y="114" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="4z3-kH-FRf"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="gnt-A5-ZYc"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="m3K-xu-x2c"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Hour (e.g. 5th)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGD-Fc-ORl">
+                                        <rect key="frame" x="20" y="114" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Title (e.g. Dr.)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLV-Ct-Z4Z">
+                                        <rect key="frame" x="20" y="152" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezx-Im-d3M">
+                                        <rect key="frame" x="254" y="152" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="G1a-om-Orq"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="mGC-ai-gPa"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wJK-x6-LNY"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Last Name (e.g. Smith)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dNE-qG-cOl">
+                                        <rect key="frame" x="20" y="190" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhP-cI-WDd">
+                                        <rect key="frame" x="254" y="190" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="EZl-fp-97B"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KpU-cN-WM1"/>
+                                            <action selector="resignFirstResponder:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="R4z-2e-ATi"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bNW-Fx-kid">
+                                        <rect key="frame" x="20" y="228" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Mobile Phone number will be used for verification purposes only. It will not be stored." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="ZXg-Md-Xzc">
+                                        <rect key="frame" x="25" y="257" width="275" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3S-QC-FRR">
+                                        <rect key="frame" x="254" y="227" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="Nj6-Yk-WwU"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ka2-KY-VTk"/>
+                                            <action selector="resignFirstResponder:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="wBS-pq-cCC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gz-3K-KYe">
+                                        <rect key="frame" x="88" y="346" width="145" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teacherCreateAccount:" destination="6GE-Wj-JN2" eventType="touchUpInside" id="Wwe-Mb-kGe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="classCode" destination="J4J-ak-fEw" id="9J8-Dr-bZD"/>
+                        <outlet property="mainView" destination="oQz-c6-ARh" id="ypj-5J-37q"/>
+                        <outlet property="resignFirstResponder" destination="d3S-QC-FRR" id="sPV-oP-2LI"/>
+                        <outlet property="teacherClassHourField" destination="zGD-Fc-ORl" id="5dY-Y9-oJ8"/>
+                        <outlet property="teacherClassNameField" destination="Hap-Gu-x4T" id="gIe-H8-vvQ"/>
+                        <outlet property="teacherContinue" destination="nFE-LB-IRn" id="rIo-qx-hGN"/>
+                        <outlet property="teacherCreateAccount" destination="0Gz-3K-KYe" id="a43-DI-kns"/>
+                        <outlet property="teacherInstructions" destination="FsJ-hs-dR9" id="tCD-uh-Wff"/>
+                        <outlet property="teacherLastNameField" destination="dNE-qG-cOl" id="gGr-3t-aGB"/>
+                        <outlet property="teacherPhoneField" destination="bNW-Fx-kid" id="myg-jd-93C"/>
+                        <outlet property="teacherPhoneLabel" destination="ZXg-Md-Xzc" id="Z5E-6O-nPu"/>
+                        <outlet property="teacherTitleField" destination="WLV-Ct-Z4Z" id="GUu-fJ-U2Q"/>
+                        <outlet property="uniqueLabel" destination="m8m-dS-I07" id="rO3-2l-Rs5"/>
+                        <outlet property="webView" destination="vox-6A-iJu" id="zwm-N2-Zz3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7I-Ed-G8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="173"/>
+        </scene>
+        <!--Student View Controller-->
+        <scene sceneID="5vK-vP-f8i">
+            <objects>
+                <viewController title="Teacher View Controller" id="Oli-ev-2HD" userLabel="Student View Controller" customClass="StudentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hch-R0-goS"/>
+                        <viewControllerLayoutGuide type="bottom" id="A8N-O7-cJX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="44Y-BS-UqT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9qS-7z-SHw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPm-mj-lgE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ScholarConnect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLV-Ri-lmw">
+                                        <rect key="frame" x="26" y="20" width="274" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.2380578066" blue="0.49569515310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="-1" height="-1"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wld-GG-WPp">
+                                <rect key="frame" x="60" y="315" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="I already signed up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="studentAlready:" destination="Oli-ev-2HD" eventType="touchUpInside" id="1G6-bc-9QN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOR-eE-rDB">
+                                <rect key="frame" x="101" y="231" width="119" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="studentGoBtn:" destination="Oli-ev-2HD" eventType="touchUpInside" id="pxk-5n-o3Z"/>
+                                    <action selector="teacherGoBtn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="SUw-QJ-aSV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullFillerView" destination="tPm-mj-lgE" id="fxt-Dq-ND8"/>
+                        <outlet property="studentAlready" destination="Wld-GG-WPp" id="CxQ-wa-ZUY"/>
+                        <outlet property="studentGoBtn" destination="wOR-eE-rDB" id="Kcf-c5-Snf"/>
+                        <outlet property="webView" destination="9qS-7z-SHw" id="owt-wG-kdJ"/>
+                        <segue destination="TXE-dY-tTF" kind="modal" identifier="studentCreate" id="3TR-g5-wBH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TmP-75-VzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666" y="-594"/>
+        </scene>
+        <!--Student Create View Controller-->
+        <scene sceneID="Ard-7N-9fm">
+            <objects>
+                <viewController id="TXE-dY-tTF" userLabel="Student Create View Controller" customClass="StudentCreateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oj1-rR-UKc"/>
+                        <viewControllerLayoutGuide type="bottom" id="T2K-f9-7Vh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6tH-AT-Na7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZSY-cv-tjO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGB-PD-3lv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ScholarConnect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEi-d8-t31">
+                                        <rect key="frame" x="26" y="9" width="285" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.2380578066" blue="0.49569515310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="shadowOffset" width="-1" height="-1"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWx-Ew-YRz">
+                                <rect key="frame" x="234" y="38" width="66" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.0" green="0.2380578066" blue="0.49569515310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="studentContinue:" destination="TXE-dY-tTF" eventType="touchUpInside" id="qqe-1h-qFI"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-Xo-fun">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="573"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name (e.g. Tom)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-AX-AZo">
+                                        <rect key="frame" x="20" y="77" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter information about your school and yourself here." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="fIp-wU-GDW">
+                                        <rect key="frame" x="25" y="12" width="275" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzM-dS-kug">
+                                        <rect key="frame" x="254" y="76" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="TXE-dY-tTF" eventType="touchUpInside" id="5ve-DB-BEK"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="P4T-ke-5U7"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bNh-dE-eh7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-Yr-Y33">
+                                        <rect key="frame" x="254" y="114" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XO0-M4-3AG"/>
+                                            <action selector="resignFirstResponder:" destination="TXE-dY-tTF" eventType="touchUpInside" id="msm-ye-U2I"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="rOG-9s-fZg"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name (e.g. Peterson)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Xu-nT-g7m">
+                                        <rect key="frame" x="20" y="114" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School (e.g. BHHS)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yZl-Ng-kms">
+                                        <rect key="frame" x="20" y="152" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox8-G1-75o">
+                                        <rect key="frame" x="254" y="152" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="TXE-dY-tTF" eventType="touchUpInside" id="Hw6-GP-Fqn"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PVq-tV-gYP"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="YDW-Up-avJ"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Grade (e.g. 9th)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dRk-cY-4U6">
+                                        <rect key="frame" x="20" y="190" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogC-ph-Zbz">
+                                        <rect key="frame" x="254" y="190" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="TXE-dY-tTF" eventType="touchUpInside" id="KUp-WG-qvd"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZYu-lb-M80"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="h3O-Fn-9fe"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mobile Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ho0-mP-rVp">
+                                        <rect key="frame" x="20" y="228" width="210" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Mobile Phone number will be used for verification purposes only. It will not be stored." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="YcJ-sU-plg">
+                                        <rect key="frame" x="25" y="257" width="275" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-dH-DfY">
+                                        <rect key="frame" x="254" y="227" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resignFirstResponder:" destination="TXE-dY-tTF" eventType="touchUpInside" id="JVT-TV-rd3"/>
+                                            <action selector="resignFirstResponder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iXZ-Hm-THt"/>
+                                            <action selector="resignFirstResponder:" destination="UGR-Ft-XU2" eventType="touchUpInside" id="xpy-Ad-J82"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZc-Tt-a4c">
+                                        <rect key="frame" x="88" y="346" width="145" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="studentCreateAccount:" destination="TXE-dY-tTF" eventType="touchUpInside" id="5d1-8g-Xr5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="bxc-Xo-fun" id="40f-uK-lkQ"/>
+                        <outlet property="resignFirstResponder" destination="VRP-dH-DfY" id="M83-YB-apN"/>
+                        <outlet property="scholarConnectLabel" destination="QEi-d8-t31" id="GRg-C8-WUT"/>
+                        <outlet property="studentContinue" destination="rWx-Ew-YRz" id="E6J-78-aaa"/>
+                        <outlet property="studentCreateAccount" destination="DZc-Tt-a4c" id="pfS-lU-2Ss"/>
+                        <outlet property="studentFirstNameField" destination="2Qv-AX-AZo" id="KCi-CK-S6G"/>
+                        <outlet property="studentGradeField" destination="dRk-cY-4U6" id="3Dq-s9-OLB"/>
+                        <outlet property="studentInstructions" destination="fIp-wU-GDW" id="ws1-bx-4Bf"/>
+                        <outlet property="studentLastField" destination="7Xu-nT-g7m" id="wyU-3x-yyj"/>
+                        <outlet property="studentPhoneField" destination="Ho0-mP-rVp" id="ImC-XR-XQd"/>
+                        <outlet property="studentPhoneLabel" destination="YcJ-sU-plg" id="l6w-he-yrm"/>
+                        <outlet property="studentSchoolField" destination="yZl-Ng-kms" id="mES-ac-OMg"/>
+                        <outlet property="webView" destination="ZSY-cv-tjO" id="6br-O0-UrZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDS-s1-SCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="-594"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
