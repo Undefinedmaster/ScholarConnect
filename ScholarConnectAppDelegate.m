@@ -6,7 +6,7 @@
 
 #import "SimpleBrowserAppDelegate.h"
 
-@implementation SimpleBrowserAppDelegate
+@implementation ScholarConnectAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
