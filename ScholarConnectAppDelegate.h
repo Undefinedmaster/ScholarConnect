@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SimpleBrowserAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ScholarConnectAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
