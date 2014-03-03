@@ -4,7 +4,7 @@
 //
 
 
-#import "SimpleBrowserAppDelegate.h"
+#import "ScholarConnectAppDelegate.h"
 
 @implementation ScholarConnectAppDelegate
 
